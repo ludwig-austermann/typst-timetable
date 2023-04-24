@@ -10,7 +10,7 @@
 
 #let weekdays = ("Mon", "Tue", "Wed", "Thu", "Fri")
 
-#let timetable(jsonfile, language: "EN", date: none) = {
+#let timetable(all_data, language: "EN", date: none) = {
   set page(margin: 0.5cm, height: auto)
   //#set page(paper: "a6", flipped: true)
   //#set page(paper: "a5", flipped: true)
@@ -66,10 +66,8 @@
     }
   })
 
-  let json_data = json(jsonfile)
-
   let data_per_day = weekdays.map(
-    day => json_data.courses.pairs().map(
+    day => all_data.courses.pairs().map(
       course => course.at(1).events.pairs().map(
         evtype => evtype.at(1).filter(
           ev => if ev.keys().contains("hidden") { not ev.hidden } else { true } and ev.day == day
@@ -83,7 +81,7 @@
     ).flatten()
   )
 
-  let datas = json_data.general.times.map(
+  let datas = all_data.general.times.map(
     time => {
       let show_time = if time.keys().contains("show_time") { time.show_time } else { false }
       data_per_day.map(
@@ -107,15 +105,15 @@
     }
   )//.flatten()
 
-  let final_datas = json_data.general.times.enumerate().map(
+  let final_datas = all_data.general.times.enumerate().map(
     time => (
       time_cell(time.at(1)),
       ..datas.at(time.at(0)).map(k => k.at(0))
     )
   ).flatten()
 
-  text(16pt, strong(lang_dict.title + " " + json_data.general.period))
-  " " + lang_dict.of + " " + json_data.general.person
+  text(16pt, strong(lang_dict.title + " " + all_data.general.period))
+  " " + lang_dict.of + " " + all_data.general.person
   if date != none {
     h(1fr)
     date
