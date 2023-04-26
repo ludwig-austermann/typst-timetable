@@ -121,7 +121,11 @@
 
   table(
     columns: (auto, 1fr, 1fr, 1fr, 1fr, 1fr),
-    stroke: gray + 0.5pt,
+    stroke: (
+      paint: gray,
+      thickness: 0.5pt,
+      dash: "dashed"
+    ),
     [], ..lang_dict.weekdays.map(day => align(center, day)),
     ..final_datas,
   )

@@ -1,0 +1,122 @@
+[general]
+period = "Summer 2023"
+person = "Max Mustermann"
+    
+[[general.times]]
+start = 8
+end = 10
+
+[[general.times]]
+start = 10
+end = 12
+
+[[general.times]]
+start = 12
+end = 14
+
+[[general.times]]
+start = 14
+end = 16
+
+[[general.times]]
+start = 16
+end = 18
+
+[[general.times]]
+start = 18
+end = 24
+display = "evening"
+show_time = true
+
+[courses."Analysis I"]
+color = "blue"
+events.VL = [
+  { day = "Mon", start = 10, end = 12, room = "big room 1" },
+  { day = "Tue", start = 10, end = 12, room = "big room 2" }
+]
+events.UE = [
+  { day = "Fri", start = 14, end = 16, room = "small room 5" }
+]
+
+[courses."Lin. Algebra I"]
+color = "orange"
+events.VL = [
+  { day = "Mon", start = 16, end = 18, room = "online" },
+  { day = "Tue", start = 16, end = 18, room = "online" }
+]
+events.UE = [
+  { day = "Mon", start = 10, end = 12, room = "small room 1" }
+]
+
+[courses."Algebra I"]
+color = "red"
+events.VL = [
+  { day = "Tue", start = 12, end = 14, room = "?" },
+  { day = "Wed", start = 12, end = 14, room = "big room 1" }
+]
+events.UE = [
+  { day = "Wed", start = 14, end = 16, room = "small room 2" }
+]
+
+[courses.Stochastic]
+color = "yellow"
+events.SEM = [
+  { day = "Thu", start = 14, end = 16, room = "small room 2" }
+]
+
+[courses."Geometry I"]
+color = "fuchsia"
+
+[[courses."Geometry I".events.VL]]
+day = "Tue"
+start = 10
+end = 12
+room = "small room 5"
+
+[courses.Sport]
+color = "lime"
+
+[[courses.Sport.events."💃"]]
+day = "Mon"
+start = 18
+end = 19.5
+room = "pretty place"
+
+[[courses.Sport.events."💪"]]
+day = "Tue"
+start = 18.5
+end = 19.5
+room = "fancy place"
+
+[[courses.Sport.events.""]]
+day = "Thu"
+start = 18.5
+end = 19.5
+room = "fancy place"
+
+[[courses.Sport.events."🏊"]]
+day = "Fri"
+start = 18.5
+end = 19.5
+room = ""
+
+[courses.Work]
+color = "gray"
+
+[[courses.Work.events.""]]
+day = "Mon"
+start = 12
+end = 16
+room = "Office"
+
+[[courses.Work.events.""]]
+day = "Thu"
+start = 8
+end = 14
+room = "Home Office"
+
+[[courses.Work.events.""]]
+day = "Fri"
+start = 8
+end = 14
+room = "Home Office"
