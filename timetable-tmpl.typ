@@ -112,6 +112,7 @@
     )
   ).flatten()
 
+  // Title
   text(16pt, strong(lang_dict.title + " " + all_data.general.period))
   " " + lang_dict.of + " " + all_data.general.person
   if date != none {
@@ -119,6 +120,7 @@
     date
   }
 
+  // Main Timetable
   table(
     columns: (auto, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: (
@@ -129,17 +131,22 @@
     [], ..lang_dict.weekdays.map(day => align(center, day)),
     ..final_datas,
   )
-  lang_dict.alternatives + ":"
-  v(-12pt)
-  table(columns: (1fr, 1fr, 1fr, 1fr, 1fr),
-    //stroke: gray + 0.5pt,
-    stroke: none,
-    ..datas.map(
-      time => time.map(
-        tuple => tuple.at(1)
-      ).filter(k => k.len() > 0).flatten()
-    ).flatten().map(
-      ev => event_cell(ev, show_time: true, show_day: true)
+
+  // Alternatives
+  let alternatives_datas = datas.map(
+    time => time.map(
+      tuple => tuple.at(1)
+    ).filter(k => k.len() > 0).flatten()
+  ).flatten()
+  if alternatives_datas.len() > 0 {
+    lang_dict.alternatives + ":"
+    v(-12pt)
+    table(columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+      //stroke: gray + 0.5pt,
+      stroke: none,
+      ..alternatives_datas.map(
+        ev => event_cell(ev, show_time: true, show_day: true)
+      )
     )
-  )
+  }
 }
