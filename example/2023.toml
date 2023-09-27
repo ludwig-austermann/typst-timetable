@@ -26,12 +26,12 @@ end = 18
 start = 18
 end = 24
 display = "evening"
-show_time = true
+show-time = true
 
 [courses."Analysis I"]
 color = "blue"
 events.VL = [
-  { day = "Mon", start = 10, end = 12, room = "big room 1" },
+  { day = "Mon", start = 10, end = 12, room = "big room 1", priority = 5 },
   { day = "Tue", start = 10, end = 12, room = "big room 2" }
 ]
 events.UE = [
@@ -66,6 +66,7 @@ events.SEM = [
 
 [courses."Geometry I"]
 color = "fuchsia"
+priority = 3
 
 [[courses."Geometry I".events.VL]]
 day = "Tue"

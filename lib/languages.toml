@@ -1,0 +1,23 @@
+[de]
+weekdays = ["MO", "DI", "MI", "DO", "FR"]
+title = "Stundenplan"
+from = "von"
+to = "bis"
+of = "von"
+alternatives = "Alternativen"
+
+[en]
+weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+title = "Timetable"
+from = "from"
+to = "to"
+of = "of"
+alternatives = "Alternatives"
+
+[it]
+weekdays = ["Lun", "Mar", "Mer", "Gio", "Ven"]
+title = "Orario"
+from = "da"
+to = "a"
+of = "di"
+alternatives = "Alternative"

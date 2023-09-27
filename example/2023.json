@@ -1,205 +1,237 @@
 {
-    "courses": {
-      "Analysis I": {
-        "color": "blue",
-        "events": {
-          "VL": [
-            {
-              "day": "Mon",
-              "start": 10,
-              "end": 12,
-              "room": "big room 1"
-            },
-            {
-              "day": "Tue",
-              "start": 10,
-              "end": 12,
-              "room": "big room 2"
-            }
-          ],
-          "UE": [
-            {
-              "day": "Fri",
-              "start": 14,
-              "end": 16,
-              "room": "small room 5"
-            }
-          ]
-        }
-      },
-      "Lin. Algebra I": {
-        "color": "orange",
-        "events": {
-          "VL": [
-            {
-              "day": "Mon",
-              "start": 16,
-              "end": 18,
-              "room": "online"
-            },
-            {
-              "day": "Tue",
-              "start": 16,
-              "end": 18,
-              "room": "online"
-            }
-          ],
-          "UE": [
-            {
-              "day": "Mon",
-              "start": 10,
-              "end": 12,
-              "room": "small room 1"
-            }
-          ]
-        }
-      },
-      "Algebra I": {
-        "color": "red",
-        "events": {
-          "VL": [
-            {
-              "day": "Tue",
-              "start": 12,
-              "end": 14,
-              "room": "?"
-            },
-            {
-              "day": "Wed",
-              "start": 12,
-              "end": 14,
-              "room": "big room 1"
-            }
-          ],
-          "UE": [
-            {
-              "day": "Wed",
-              "start": 14,
-              "end": 16,
-              "room": "small room 2"
-            }
-          ]
-        }
-      },
-      "Stochastic": {
-        "color": "yellow",
-        "events": {
-          "SEM": [
-            {
-              "day": "Thu",
-              "start": 14,
-              "end": 16,
-              "room": "small room 2"
-            }
-          ]
-        }
-      },
-      "Geometry I": {
-        "color": "fuchsia",
-        "events": {
-          "VL": [
-            {
-              "day": "Tue",
-              "start": 10,
-              "end": 12,
-              "room": "small room 5"
-            }
-          ]
-        }
-      },
-      "Sport": {
-        "color": "lime",
-        "events": {
-          "💃": [
-            {
-              "day": "Mon",
-              "start": 18,
-              "end": 19.5,
-              "room": "pretty place"
-            }
-          ],
-          "💪": [
-            {
-              "day": "Tue",
-              "start": 18.5,
-              "end": 19.5,
-              "room": "fancy place"
-            }
-          ],
-          "": [
-            {
-              "day": "Thu",
-              "start": 18.5,
-              "end": 19.5,
-              "room": "fancy place"
-            }
-          ],
-          "🏊": [
-            {
-              "day": "Fri",
-              "start": 18.5,
-              "end": 19.5,
-              "room": ""
-            }
-          ]
-        }
-      },
-      "Work": {
-        "color": "gray",
-        "events": {
-          "": [
-            {
-              "day": "Mon",
-              "start": 12,
-              "end": 16,
-              "room": "Office"
-            },
-            {
-              "day": "Thu",
-              "start": 8,
-              "end": 14,
-              "room": "Home Office"
-            },
-            {
-              "day": "Fri",
-              "start": 8,
-              "end": 14,
-              "room": "Home Office"
-            }
-          ]
-        }
+  "courses":
+  {
+    "Algebra I":
+    {
+      "color": "red",
+      "events":
+      {
+        "UE":
+        [
+          {
+            "day": "Wed",
+            "end": 16,
+            "room": "small room 2",
+            "start": 14
+          }
+        ],
+        "VL":
+        [
+          {
+            "day": "Tue",
+            "end": 14,
+            "room": "?",
+            "start": 12
+          },
+          {
+            "day": "Wed",
+            "end": 14,
+            "room": "big room 1",
+            "start": 12
+          }
+        ]
       }
     },
-    "general": {
-      "period": "Summer 2023",
-      "person": "Max Mustermann",
-      "times": [
-        {
-          "start": 8,
-          "end": 10
-        },
-        {
-          "start": 10,
-          "end": 12
-        },
-        {
-          "start": 12,
-          "end": 14
-        },
-        {
-          "start": 14,
-          "end": 16
-        },
-        {
-          "start": 16,
-          "end": 18
-        },
-        {
-          "start": 18,
-          "end": 24,
-          "display": "evening",
-          "show_time": true
-        }
-      ]
+    "Analysis I":
+    {
+      "color": "blue",
+      "events":
+      {
+        "UE":
+        [
+          {
+            "day": "Fri",
+            "end": 16,
+            "room": "small room 5",
+            "start": 14
+          }
+        ],
+        "VL":
+        [
+          {
+            "day": "Mon",
+            "end": 12,
+            "priority": 5,
+            "room": "big room 1",
+            "start": 10
+          },
+          {
+            "day": "Tue",
+            "end": 12,
+            "room": "big room 2",
+            "start": 10
+          }
+        ]
+      }
+    },
+    "Geometry I":
+    {
+      "color": "fuchsia",
+      "events":
+      {
+        "VL":
+        [
+          {
+            "day": "Tue",
+            "end": 12,
+            "room": "small room 5",
+            "start": 10
+          }
+        ]
+      },
+      "priority": 3
+    },
+    "Lin. Algebra I":
+    {
+      "color": "orange",
+      "events":
+      {
+        "UE":
+        [
+          {
+            "day": "Mon",
+            "end": 12,
+            "room": "small room 1",
+            "start": 10
+          }
+        ],
+        "VL":
+        [
+          {
+            "day": "Mon",
+            "end": 18,
+            "room": "online",
+            "start": 16
+          },
+          {
+            "day": "Tue",
+            "end": 18,
+            "room": "online",
+            "start": 16
+          }
+        ]
+      }
+    },
+    "Sport":
+    {
+      "color": "lime",
+      "events":
+      {
+        "":
+        [
+          {
+            "day": "Thu",
+            "end": 19.5,
+            "room": "fancy place",
+            "start": 18.5
+          }
+        ],
+        "🏊":
+        [
+          {
+            "day": "Fri",
+            "end": 19.5,
+            "room": "",
+            "start": 18.5
+          }
+        ],
+        "💃":
+        [
+          {
+            "day": "Mon",
+            "end": 19.5,
+            "room": "pretty place",
+            "start": 18
+          }
+        ],
+        "💪":
+        [
+          {
+            "day": "Tue",
+            "end": 19.5,
+            "room": "fancy place",
+            "start": 18.5
+          }
+        ]
+      }
+    },
+    "Stochastic":
+    {
+      "color": "yellow",
+      "events":
+      {
+        "SEM":
+        [
+          {
+            "day": "Thu",
+            "end": 16,
+            "room": "small room 2",
+            "start": 14
+          }
+        ]
+      }
+    },
+    "Work":
+    {
+      "color": "gray",
+      "events":
+      {
+        "":
+        [
+          {
+            "day": "Mon",
+            "end": 16,
+            "room": "Office",
+            "start": 12
+          },
+          {
+            "day": "Thu",
+            "end": 14,
+            "room": "Home Office",
+            "start": 8
+          },
+          {
+            "day": "Fri",
+            "end": 14,
+            "room": "Home Office",
+            "start": 8
+          }
+        ]
+      }
     }
+  },
+  "general":
+  {
+    "period": "Summer 2023",
+    "person": "Max Mustermann",
+    "times":
+    [
+      {
+        "end": 10,
+        "start": 8
+      },
+      {
+        "end": 12,
+        "start": 10
+      },
+      {
+        "end": 14,
+        "start": 12
+      },
+      {
+        "end": 16,
+        "start": 14
+      },
+      {
+        "end": 18,
+        "start": 16
+      },
+      {
+        "display": "evening",
+        "end": 24,
+        "show-time": true,
+        "start": 18
+      }
+    ]
   }
+}

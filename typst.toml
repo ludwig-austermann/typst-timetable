@@ -1,0 +1,14 @@
+[package]
+name = "timetable"
+version = "0.2.0"
+entrypoint = "timetable.typ"
+authors = ["Ludwig Austermann"]
+license = "MIT"
+description = "Create beautiful timetables from json/toml."
+repository = "https://github.com/ludwig-austermann/typst-timetable"
+exclude = ["examples"]
+
+# for usage with https://github.com/ludwig-austermann/typ-pack
+[packaging]
+include = ["lib.typ", "example/*.typ", "example/*.pdf"]
+prescript = "example/.create_outputs.nu"
