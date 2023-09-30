@@ -4,7 +4,7 @@
 
 #timetable(
   toml("2023.toml"),
-  language: "it",
+  //language: "it",
   //show-header: false,
   //show-alternatives: false,
 )
