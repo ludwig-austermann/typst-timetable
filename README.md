@@ -1,4 +1,6 @@
 # typst-timetable
+[GitHub Repository including Examples and Changelog](https://github.com/ludwig-austermann/typst-timetable)
+
 A typst template for timetables
 
 ## Features
