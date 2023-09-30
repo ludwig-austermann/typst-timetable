@@ -1,4 +1,6 @@
 # v0.2.0-beta
+- entrypoint is now `timetable.typ`
+- added a `typst.toml`
 - removed page sizing from function
 - added arguments `show-header`, `show-alternatives`
 - *changed `show_time` argument to `show-time` for the data dictionary*
