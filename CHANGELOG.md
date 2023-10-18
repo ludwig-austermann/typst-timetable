@@ -1,3 +1,13 @@
+# v0.2.0-beta.1
+## code facing
+- added color themes. you can specify one of the color themes as given in `colorthemes.pdf` and overwrite special colors in the data file
+- added description table, showing further information about your courses
+## data / dictionary
+- added `duration` the new `defaults`, so that only `start` or `end` has to be specified for events
+- added `hide` for courses
+- added `description` table to specify description table
+- added `course -> hide-discription` option, to hide course from description
+
 # v0.2.0-beta
 - entrypoint is now `timetable.typ`
 - added a `typst.toml`

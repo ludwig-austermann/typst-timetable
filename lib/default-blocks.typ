@@ -10,7 +10,7 @@
 
 #let event-cell(event, show-time: false, show-day: false, unique: true) = {
   box(stroke: (left: event.color + 3pt), inset: (left: 5pt, y: 2pt), {
-    strong(event.name)
+    strong(event.abbrv)
     h(1fr)
     event.kind
     linebreak()

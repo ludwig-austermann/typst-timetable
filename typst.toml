@@ -10,5 +10,5 @@ exclude = ["examples"]
 
 # for usage with https://github.com/ludwig-austermann/typ-pack
 [packaging]
-include = ["lib.typ", "example/*.typ", "example/*.pdf"]
+include = ["lib/*.typ", "lib/*.toml", "example/*.typ", "example/*.pdf"]
 prescript = "example/.create_outputs.nu"

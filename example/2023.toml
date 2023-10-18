@@ -28,53 +28,80 @@ end = 24
 display = "evening"
 show-time = true
 
-[courses."Analysis I"]
-color = "blue"
+[defaults]
+duration = 2
+
+[[description]]
+id = "name"
+title = "Course name"
+[[description]]
+id = "info"
+title = "Add. info"
+type = "content"
+[[description]]
+id = "url"
+title = "Website"
+type = "link"
+
+# main section defining the courses
+
+[courses."Ana I"]
+name = "Analysis I"
+url = "https://en.wikipedia.org/wiki/Mathematical_analysis"
 events.VL = [
-  { day = "Mon", start = 10, end = 12, room = "big room 1", priority = 5 },
-  { day = "Tue", start = 10, end = 12, room = "big room 2" }
+  { day = "Mon", end = 12, room = "big room 1", priority = 5 },
+  { day = "Tue", end = 12, room = "big room 2" }
 ]
 events.UE = [
-  { day = "Fri", start = 14, end = 16, room = "small room 5" }
+  { day = "Fri", end = 16, room = "small room 5" }
 ]
 
-[courses."Lin. Algebra I"]
-color = "orange"
+[courses."LinA I"]
+name = "Linear Algebra I"
+info = "#box(fill: red, inset: 2pt)[required]"
+url = "https://en.wikipedia.org/wiki/Linear_algebra"
 events.VL = [
-  { day = "Mon", start = 16, end = 18, room = "online" },
-  { day = "Tue", start = 16, end = 18, room = "online" }
+  { day = "Mon", start = 16, room = "online" },
+  { day = "Tue", start = 16, room = "online" }
 ]
 events.UE = [
-  { day = "Mon", start = 10, end = 12, room = "small room 1" }
+  { day = "Mon", start = 10, room = "small room 1" }
 ]
 
-[courses."Algebra I"]
-color = "red"
+[courses."Alg I"]
+name = "Algebra I"
+url = "https://en.wikipedia.org/wiki/Algebra"
 events.VL = [
-  { day = "Tue", start = 12, end = 14, room = "?" },
-  { day = "Wed", start = 12, end = 14, room = "big room 1" }
+  { day = "Tue", start = 12, room = "?" },
+  { day = "Wed", start = 12, room = "big room 1" }
 ]
 events.UE = [
-  { day = "Wed", start = 14, end = 16, room = "small room 2" }
+  { day = "Wed", start = 14, room = "small room 2" }
 ]
 
-[courses.Stochastic]
+[courses.Stoch]
+name = "Stochastic"
+url = "https://en.wikipedia.org/wiki/Stochastic"
 color = "yellow"
 events.SEM = [
-  { day = "Thu", start = 14, end = 16, room = "small room 2" }
+  { day = "Thu", start = 14, room = "small room 2" }
 ]
 
-[courses."Geometry I"]
-color = "fuchsia"
+[courses."Geo I"]
+name = "Geometry I"
+url = "https://en.wikipedia.org/wiki/Geometry"
 priority = 3
 
-[[courses."Geometry I".events.VL]]
+[[courses."Geo I".events.VL]]
 day = "Tue"
 start = 10
-end = 12
 room = "small room 5"
 
+[courses.Hacking]
+hide = true
+
 [courses.Sport]
+hide-description = true
 color = "lime"
 
 [[courses.Sport.events."💃"]]
@@ -94,6 +121,7 @@ day = "Thu"
 start = 18.5
 end = 19.5
 room = "fancy place"
+hide = true
 
 [[courses.Sport.events."🏊"]]
 day = "Fri"
@@ -103,6 +131,7 @@ room = ""
 
 [courses.Work]
 color = "gray"
+hide-description = true
 
 [[courses.Work.events.""]]
 day = "Mon"

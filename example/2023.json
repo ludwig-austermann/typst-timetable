@@ -1,16 +1,14 @@
 {
   "courses":
   {
-    "Algebra I":
+    "Alg I":
     {
-      "color": "red",
       "events":
       {
         "UE":
         [
           {
             "day": "Wed",
-            "end": 16,
             "room": "small room 2",
             "start": 14
           }
@@ -19,22 +17,21 @@
         [
           {
             "day": "Tue",
-            "end": 14,
             "room": "?",
             "start": 12
           },
           {
             "day": "Wed",
-            "end": 14,
             "room": "big room 1",
             "start": 12
           }
         ]
-      }
+      },
+      "name": "Algebra I",
+      "url": "https://en.wikipedia.org/wiki/Algebra"
     },
-    "Analysis I":
+    "Ana I":
     {
-      "color": "blue",
       "events":
       {
         "UE":
@@ -42,8 +39,7 @@
           {
             "day": "Fri",
             "end": 16,
-            "room": "small room 5",
-            "start": 14
+            "room": "small room 5"
           }
         ],
         "VL":
@@ -52,45 +48,47 @@
             "day": "Mon",
             "end": 12,
             "priority": 5,
-            "room": "big room 1",
-            "start": 10
+            "room": "big room 1"
           },
           {
             "day": "Tue",
             "end": 12,
-            "room": "big room 2",
-            "start": 10
+            "room": "big room 2"
           }
         ]
-      }
+      },
+      "name": "Analysis I",
+      "url": "https://en.wikipedia.org/wiki/Mathematical_analysis"
     },
-    "Geometry I":
+    "Geo I":
     {
-      "color": "fuchsia",
       "events":
       {
         "VL":
         [
           {
             "day": "Tue",
-            "end": 12,
             "room": "small room 5",
             "start": 10
           }
         ]
       },
-      "priority": 3
+      "name": "Geometry I",
+      "priority": 3,
+      "url": "https://en.wikipedia.org/wiki/Geometry"
     },
-    "Lin. Algebra I":
+    "Hacking":
     {
-      "color": "orange",
+      "hide": true
+    },
+    "LinA I":
+    {
       "events":
       {
         "UE":
         [
           {
             "day": "Mon",
-            "end": 12,
             "room": "small room 1",
             "start": 10
           }
@@ -99,18 +97,19 @@
         [
           {
             "day": "Mon",
-            "end": 18,
             "room": "online",
             "start": 16
           },
           {
             "day": "Tue",
-            "end": 18,
             "room": "online",
             "start": 16
           }
         ]
-      }
+      },
+      "info": "#box(fill: red, inset: 2pt)[required]",
+      "name": "Linear Algebra I",
+      "url": "https://en.wikipedia.org/wiki/Linear_algebra"
     },
     "Sport":
     {
@@ -122,6 +121,7 @@
           {
             "day": "Thu",
             "end": 19.5,
+            "hide": true,
             "room": "fancy place",
             "start": 18.5
           }
@@ -153,9 +153,10 @@
             "start": 18.5
           }
         ]
-      }
+      },
+      "hide-description": true
     },
-    "Stochastic":
+    "Stoch":
     {
       "color": "yellow",
       "events":
@@ -164,12 +165,13 @@
         [
           {
             "day": "Thu",
-            "end": 16,
             "room": "small room 2",
             "start": 14
           }
         ]
-      }
+      },
+      "name": "Stochastic",
+      "url": "https://en.wikipedia.org/wiki/Stochastic"
     },
     "Work":
     {
@@ -197,9 +199,31 @@
             "start": 8
           }
         ]
-      }
+      },
+      "hide-description": true
     }
   },
+  "defaults":
+  {
+    "duration": 2
+  },
+  "description":
+  [
+    {
+      "id": "name",
+      "title": "Course name"
+    },
+    {
+      "id": "info",
+      "title": "Add. info",
+      "type": "content"
+    },
+    {
+      "id": "url",
+      "title": "Website",
+      "type": "link"
+    }
+  ],
   "general":
   {
     "period": "Summer 2023",
