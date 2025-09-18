@@ -24,3 +24,12 @@ to = "a"
 of = "di"
 alternatives = "Alternative"
 description = "Descrizione"
+
+[fr]
+weekdays = ["Lun", "Mar", "Mer", "Jeu", "Ven"]
+title = "Horaire"
+from = "de"
+to = "à"
+of = "de"
+alternatives = "Alternative"
+description = "Description"
