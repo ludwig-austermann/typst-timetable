@@ -1,4 +1,4 @@
-#import "@preview/tablex:0.0.5": tablex, rowspanx
+#import "@preview/tablex:0.0.9": tablex, rowspanx
 #import "lib/helper.typ" as lib
 #import "lib/default-blocks.typ"
 
@@ -88,8 +88,8 @@
   if show-description {
     text(14pt, lang-dict.description + ":")
     v(-6pt)
-    style(sty => {
-      let h = measure([Hello], sty).height
+    context {
+      let h = measure([Hello]).height
       table(
         columns: description.len() + 2,
         stroke: (
@@ -111,6 +111,6 @@
           )
         ).flatten()
       )
-    })
+    }
   }
 }
