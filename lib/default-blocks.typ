@@ -1,11 +1,17 @@
 #let display-time(time) = {
-  let hour = int(time)
-  let minute = 60 * (time - hour)
-  if hour < 10 { [0] }
-  str(hour)
-  [:]
-  if minute < 10 { [0] }
-  str(minute)
+  if type(time) in (int, float) {
+    let hour = int(time)
+    let minute = 60 * (time - hour)
+    if hour < 10 { [0] }
+    str(hour)
+    [:]
+    if minute < 10 { [0] }
+    str(minute)
+  } else if type(time) == datetime {
+    time.display("[hour]:[minute]")
+  } else {
+    panic("unknwon datatype", time)
+  }
 }
 
 #let event-cell(event, show-time: false, show-day: false, unique: true) = {

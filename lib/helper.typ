@@ -59,7 +59,14 @@
 
   let defaults = data.at("defaults", default: (:))
   let default-duration = defaults.at("duration", default: 2)
+  if type(default-duration) == datetime {
+    default-duration = default-duration - datetime(
+      hour: 0,
+      minute: 0,
+      second: 0,
+    )
 
+  }
   let slots = weekdays.map(_ => data.general.times.map(_ => none))
   let alts  = ()
   let times = data.general.times.map(
