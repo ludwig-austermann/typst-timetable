@@ -9,15 +9,6 @@
   }
 }
 
-#let load-color-theme(theme-name, themes-file: "colorthemes.toml") = {
-  let theme-dict = toml(themes-file)
-  if theme-name in theme-dict {
-    theme-dict.at(theme-name).map(c => color.rgb(c.at(0), c.at(1), c.at(2)))
-  } else {
-    panic("Color Theme `" + theme-name + "` does not exist. Alternatives are: {" + theme-dict.keys().join(", ") + "}")
-  }
-}
-
 #let description-parser(data) = if "description" in data {
   data.description.map(d => {
     if "title" not in d { d.insert("title", upper(d.id)) }
@@ -61,7 +52,7 @@
   let default-duration = defaults.at("duration", default: 2)
 
   let slots = weekdays.map(_ => data.general.times.map(_ => none))
-  let alts  = ()
+  let alts  = () // alternatives
   let times = data.general.times.map(
     time => (
       ..time,

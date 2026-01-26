@@ -1,3 +1,9 @@
+# v0.2.0-beta.2
+## upgrade to typst v0.11
+- remove the tablex dependency
+- removal of styles expression
+- removal of colorpalettes, I released the qcm package, but also the modpattern package for grayscale printing.
+
 # v0.2.0-beta.1
 ## code facing
 - added color themes. you can specify one of the color themes as given in `colorthemes.pdf` and overwrite special colors in the data file

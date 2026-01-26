@@ -22,7 +22,7 @@ The exposed `timetable` function takes the following arguments:
 - `show-header: true`: if to show the header
 - `show-alternatives: true`: if to show collisions and their corresponding alternatives
 - `show-description: true`: if to show the description table
-- `tablex-args: (:)`: arguments to be passed to the underlying tablex table, to overwrite the style
+- `table-args: (:)`: arguments to be passed to the underlying table, to overwrite the style
 - `event-cell: default-blocks.event-cell`: how to display the events
 - `time-cell: default-blocks.time-cell`: how to display the time cells
 - `color-theme: tab`: for automatical coloring of courses
@@ -61,7 +61,7 @@ courses: {abbrv}?: string ->
         hide [false]
 ```
 
-Here `?` denotes optional values, `[]` the corresponding default value, `{}` parametrices keys and `->` denotes another dictionary.
+Here `?` denotes optional values, `[]` the corresponding default value, `{}` parametrizes keys and `->` denotes another dictionary.
 
 Necessary are only a few options, for a quick start look at this simplified version:
 ```
@@ -80,5 +80,5 @@ courses: {abbrv}?: string ->
 
 Take a look at the example files, currently only the `toml` ones show all options.
 
-## Typst Usage Tipp
+## Typst Usage Tip
 I plan to eventually release this as a package to typst packages. Until then, or additionally, you can place this in your local packages repo. If you use the web app, 

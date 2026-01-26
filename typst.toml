@@ -1,14 +1,23 @@
 [package]
 name = "timetable"
-version = "0.2.0"
+version = "0.3.0"
 entrypoint = "timetable.typ"
 authors = ["Ludwig Austermann"]
 license = "MIT"
 description = "Create beautiful timetables from json/toml."
 repository = "https://github.com/ludwig-austermann/typst-timetable"
-exclude = ["examples"]
+exclude = ["example"]
+compiler = "0.14.0"
 
-# for usage with https://github.com/ludwig-austermann/typ-pack
-[packaging]
-include = ["lib/*.typ", "lib/*.toml", "example/*.typ", "example/*.pdf"]
-prescript = "example/.create_outputs.nu"
+[tool.typpkg]
+# include = ["lib/*.typ", "lib/*.toml", "example/*.typ", "example/*.pdf"]
+# prescript = "example/.create_outputs.nu"
+exclude = ["CHANGELOG.md", "example/data"]
+include = ["example/**/*.toml"]
+replace_imports = ["example/*.typ"]
+replace_locals = true
+typst_compile = [
+    {path = "example/2023.typ", root = '.'},
+    {path = "example/2023.typ", root = '.', format = 'png'},
+    {path = "example/2023.typ", root = '.', format = 'svg'},
+]

@@ -1,28 +1,23 @@
-#import "@preview/tablex:0.0.5": tablex, rowspanx
 #import "lib/helper.typ" as lib
 #import "lib/default-blocks.typ"
 
 #let timetable(
   all-data,
-  language: "en",
   date: datetime.today().display("[day].[month].[year]"),
   show-header: true,
   show-alternatives: true,
   show-description: true,
-  tablex-args: (:),
+  table-args: (:),
   event-cell: default-blocks.event-cell,
   time-cell: default-blocks.time-cell,
-  color-theme: "tab",
-) = {
-  let lang-dict = if type(language) == str {
-    lib.load-language(language)
-  } else { language }
+  color-theme: default-blocks.default-color-theme,
+  translations-dict: none,
+) = context {
+  let lang-dict = if translations-dict == none {
+    lib.load-language(text.lang)
+  } else { translations-dict }
 
-  let colors = if type(color-theme) == str {
-    lib.load-color-theme(color-theme)
-  } else { color-theme }
-
-  let (times, courses, description, slots, alts) = lib.process-timetable-data(all-data, colors)
+  let (times, courses, description, slots, alts) = lib.process-timetable-data(all-data, color-theme)
   
   let final-data = times.enumerate().map(
     time => (
@@ -38,7 +33,7 @@
             show-time: time.at(1).at("show-time", default: false),
             unique: ev.at("unique", default: true)
           )
-          if ev.duration > 0 { rowspanx(ev.duration + 1, cell) } else { cell }
+          if ev.duration > 0 { table.cell(rowspan: ev.duration + 1, cell) } else { cell }
         }
       ).flatten()
     ).flatten()
@@ -55,15 +50,15 @@
   }
 
   // Main Timetable
-  tablex(
+  table(
     columns: (auto, 1fr, 1fr, 1fr, 1fr, 1fr),
     stroke: (
       paint: gray,
       thickness: 0.5pt,
       dash: "dashed"
     ),
-    ..tablex-args,
-    [], ..lang-dict.weekdays.map(day => align(center, day)),
+    ..table-args,
+    table.header(none, ..lang-dict.weekdays.map(day => align(center, day))),
     ..final-data,
   )
 
@@ -74,7 +69,7 @@
     text(14pt, lang-dict.alternatives + ":")
     v(-12pt)
     table(
-      columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+      columns: 5 * (1fr,),
       column-gutter: 5pt,
       //stroke: gray + 0.5pt,
       stroke: none,
@@ -88,8 +83,7 @@
   if show-description {
     text(14pt, lang-dict.description + ":")
     v(-6pt)
-    style(sty => {
-      let h = measure([Hello], sty).height
+    context {
       table(
         columns: description.len() + 2,
         stroke: (
@@ -97,13 +91,14 @@
           thickness: 0.5pt,
           dash: "dashed"
         ),
-        ..tablex-args, // at the moment tablex does not span the whole width
-        none, none, ..description.map(d => strong(d.title)),
+        align: horizon,
+        ..table-args,
+        table.header(none, table.vline(stroke: none), none, ..description.map(d => strong(d.title))),
         ..courses.filter(
           c => not c.at("hide-description", default: false)
         ).map(
           c => (
-            rect(fill: c.color, width: h, height: h),
+            table.cell(square(fill: c.color, width: text.size, stroke: gray + 0.5pt), inset: (right: 0pt)),
             strong(c.abbrv),
             ..description.map(
               d => (d.contentfn)(c.at(d.id, default: "")) // wraps content in link or other stuff
@@ -111,6 +106,6 @@
           )
         ).flatten()
       )
-    })
+    }
   }
 }

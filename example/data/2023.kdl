@@ -1,0 +1,88 @@
+courses {
+    course "Alg I" name="Algebra I" url="https://en.wikipedia.org/wiki/Algebra" {
+        events UE {
+            event day=Wed room="small room 2" start=14
+        }
+        events VL {
+            event day=Tue room="?" start=12
+            event day=Wed room="big room 1" start=12
+        }
+    }
+
+    course "Ana I" name="Analysis I" url="https://en.wikipedia.org/wiki/Mathematical_analysis" {
+        events UE {
+            event day=Fri end=16 room="small room 5"
+        }
+        events VL {
+            event day=Mon end=12 room="big room 1" priority=5
+            event day=Tue end=12 room="big room 2"
+        }
+    }
+
+    course "Geo I" name="Geometry I" url="https://en.wikipedia.org/wiki/Geometry" priority=3 {
+        events VL {
+            event day=Tue start=10 room="small room 5"
+        }
+    }
+
+    course Hacking hide=#true
+
+    course "LinA I" name="Linear Algebra I" url="https://en.wikipedia.org/wiki/Linear_algebra"\
+        info=(typ)"#box(fill: red, inset: 2pt)[required]" {
+            events UE {
+                event day=Mon start=10 room="small room 1"
+            }
+            events VL {
+                event day=Mon start=16 room=online
+                event day=Tue start=16 room=online
+            }
+    }
+
+    course Sport color=(typ)lime hide-description=#true {
+        events "" {
+            event day=Thu start=18.5 end=19.5 hide=#true room="fancy place"
+        }
+        events 🏊 {
+            event day=Fri start=18.5 end=19.5 room=""
+        }
+        events 💃 {
+            event day=Mon start=18 end=19.5 room="pretty place"
+        }
+        events 💪 {
+            event day=Tue start=18.5 end=19.5 room="fancy place"
+        }
+    }
+
+    course Stoch color=(typ)yellow name=Stochastic url="https://en.wikipedia.org/wiki/Stochastic" {
+        events SEM {
+            event day=Thu start=14 room="small room 2"
+        }
+    }
+
+    course Work color=(typ)gray hide-description=#true {
+        events "" {
+            event day=Mon start=12 end=16 room=Office
+            event day=Thu start=8 end=14 room="Home Office"
+            event day=Fri start=8 end=14 room="Home Office"
+        }
+    }
+}
+
+defaults duration=2
+
+description {
+    column name title="Course name"
+    column info title="Add. info" type=content
+    column url title=Website type=link
+}
+
+general period="Summer 2023" person="Max Mustermann" {
+    times {
+        time 8 10
+        time 10 12
+        time 12 14
+        time 14 16
+        time 16 18
+        time 18 24 display=evening show-time=#true
+    }
+}

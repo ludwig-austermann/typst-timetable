@@ -8,8 +8,24 @@
   str(minute)
 }
 
+// taken from qcm: Set3_12
+#let default-color-theme = (
+  rgb("#8dd3c7"),
+  rgb("#ffffb3"),
+  rgb("#bebada"),
+  rgb("#fb8072"),
+  rgb("#80b1d3"),
+  rgb("#fdb462"),
+  rgb("#b3de69"),
+  rgb("#fccde5"),
+  rgb("#d9d9d9"),
+  rgb("#bc80bd"),
+  rgb("#ccebc5"),
+  rgb("#ffed6f"),
+)
+
 #let event-cell(event, show-time: false, show-day: false, unique: true) = {
-  box(stroke: (left: event.color + 3pt), inset: (left: 5pt, y: 2pt), {
+  box(stroke: (left: event.color + 4pt), inset: (left: 5pt, y: 2pt), {
     strong(event.abbrv)
     h(1fr)
     event.kind
