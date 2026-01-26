@@ -54,20 +54,50 @@
   courses
 }
 
+#let time-parser(time) = if type(time) == int {
+  if time == 24 {
+    datetime(year: 0, month: 1, day: 2, hour: 0, minute: 0, second: 0)
+  } else {
+    datetime(year: 0, month: 1, day: 1, hour: time, minute: 0, second: 0)
+  }
+} else if type(time) == float {
+  let hours = int(time)
+  // we will just ignore the seconds
+  let minutes = int(calc.round(60 * (time - hours)))
+  datetime(year: 0, month: 1, day: 1, hour: hours, minute: minutes, second: 0)
+} else if type(time) == datetime {
+  if time.day() == none {
+    datetime(year: 0, month: 1, day: 1, hour: time.hour(), minute: time.minute(), second: time.second())
+  } else {
+    time
+  }
+} else if type(time) == str {
+  let (hours, minutes, .._other) = time.split(":")
+  if hours == "24" {
+    datetime(year: 0, month: 1, day: 2, hour: 0, minute: 0, second: 0)
+  } else {
+    datetime(year: 0, month: 1, day: 1, hour: int(hours), minute: int(minutes), second: 0)
+  }
+} else {
+  panic("unknwon datatype", time)
+}
+
+#let duration-parser(dur) = time-parser(dur) - datetime(year: 0, month: 1, day: 1, hour: 0, minute: 0, second: 0)
+
 #let process-timetable-data(data, colors) = {
   let time-overlap(ev, time) = time.start <= ev.start and ev.start < time.end or time.start < ev.end and ev.end <= time.end or ev.start < time.start and time.end < ev.end
 
   let defaults = data.at("defaults", default: (:))
-  let default-duration = defaults.at("duration", default: 2)
+  let default-duration = duration-parser(defaults.at("duration", default: 2))
 
+  // helper methods to parse the start / end time fields
+  let start-parser(time-pair) = if "start" in time-pair { time-parser(time-pair.start) } else {time-parser(time-pair.end) - default-duration }
+  let end-parser(time-pair) = if "end" in time-pair { time-parser(time-pair.end) } else { time-parser(time-pair.start) + default-duration }
+  
   let slots = weekdays.map(_ => data.general.times.map(_ => none))
   let alts  = ()
   let times = data.general.times.map(
-    time => (
-      ..time,
-      start: if "start" in time { time.start } else { time.end - default-duration },
-      end: if "end" in time { time.end } else { time.start + default-duration }
-    )
+    time => (..time, start: start-parser(time), end: end-parser(time))
   )
   
   let courses = courses-parser(data, colors)
@@ -82,8 +112,8 @@
           ..k,      // get all properties from the event, included later hence can overwrite course properties (e.g. for priority)
           kind: evtype.at(0),
           // change if absent with special values
-          start: if "start" in k { k.start } else { k.end - default-duration },
-          end: if "end" in k { k.end } else { k.start + default-duration }
+          start: start-parser(k),
+          end: end-parser(k)
         )).flatten()
       ).flatten()
     ).flatten().sorted(key: ev => ev.priority).rev()
@@ -93,14 +123,14 @@
         if time-overlap(ev, time) {
           if slots.at(i).at(j) == none {
             // also check the duration
-            let duration = times.slice(j + 1).enumerate()
+            let dur = times.slice(j + 1).enumerate()
               .find(x => not time-overlap(ev, x.at(1)))
-            let duration = if duration == none { 0 } else { duration.at(0) }
-            ev.insert("duration", duration)
+            let dur = if dur == none { 0 } else { dur.at(0) }
+            ev.insert("duration", dur)
             
             slots.at(i).at(j) = ev
-            if duration > 0 {
-              for k in range(duration) {
+            if dur > 0 {
+              for k in range(dur) {
                 slots.at(i).at(j + k + 1) = ("occupied": true) // notify that this spot is already occupied
               }
             }

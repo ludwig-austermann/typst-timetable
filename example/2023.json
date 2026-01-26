@@ -132,7 +132,7 @@
             "day": "Fri",
             "end": 19.5,
             "room": "",
-            "start": 18.5
+            "start": "18:30"
           }
         ],
         "💃":
@@ -150,7 +150,7 @@
             "day": "Tue",
             "end": 19.5,
             "room": "fancy place",
-            "start": 18.5
+            "start": "18:30:00"
           }
         ]
       },
