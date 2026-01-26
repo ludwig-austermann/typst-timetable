@@ -43,13 +43,13 @@ courses {
             event day=Thu start=18.5 end=19.5 hide=#true room="fancy place"
         }
         events 🏊 {
-            event day=Fri start=18.5 end=19.5 room=""
+            event day=Fri start="18:30" end=19.5 room=""
         }
         events 💃 {
             event day=Mon start=18 end=19.5 room="pretty place"
         }
         events 💪 {
-            event day=Tue start=18.5 end=19.5 room="fancy place"
+            event day=Tue start="18:30:00" end=19.5 room="fancy place"
         }
     }
 
