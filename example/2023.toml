@@ -112,7 +112,7 @@ room = "pretty place"
 
 [[courses.Sport.events."💪"]]
 day = "Tue"
-start = 18.5
+start = 18:30:00
 end = 19.5
 room = "fancy place"
 
@@ -125,7 +125,7 @@ hide = true
 
 [[courses.Sport.events."🏊"]]
 day = "Fri"
-start = 18.5
+start = 18:30:00
 end = 19.5
 room = ""
 

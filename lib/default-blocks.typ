@@ -1,17 +1,7 @@
-#let display-time(time) = {
-  if type(time) in (int, float) {
-    let hour = int(time)
-    let minute = 60 * (time - hour)
-    if hour < 10 { [0] }
-    str(hour)
-    [:]
-    if minute < 10 { [0] }
-    str(minute)
-  } else if type(time) == datetime {
-    time.display("[hour]:[minute]")
-  } else {
-    panic("unknwon datatype", time)
-  }
+#let display-time(time) = if time.day() == 2 {
+  "24:00"
+} else {
+  time.display("[hour]:[minute]")
 }
 
 #let event-cell(event, show-time: false, show-day: false, unique: true) = {
@@ -36,14 +26,12 @@
   })
 }
 
-#let time-cell(time, lang-dict) = align(horizon + right, {
-  if time.keys().contains("display") {
-    time.display
-  } else {
+#let time-cell(time, lang-dict) = align(horizon + right,
+  time.at("display", default: {
     lang-dict.from + " "
     display-time(time.start)
     linebreak()
     lang-dict.to + " "
     display-time(time.end)
-  }
-})
+  })
+)
