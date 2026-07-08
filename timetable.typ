@@ -12,6 +12,11 @@
   time-cell: default-blocks.time-cell,
   color-theme: default-blocks.default-color-theme,
   translations-dict: none,
+  stroke: (
+          paint: gray,
+          thickness: 0.5pt,
+          dash: "dashed"
+        ),
 ) = context {
   let lang-dict = if translations-dict == none {
     lib.load-language(text.lang)
@@ -52,11 +57,7 @@
   // Main Timetable
   table(
     columns: (auto, 1fr, 1fr, 1fr, 1fr, 1fr),
-    stroke: (
-      paint: gray,
-      thickness: 0.5pt,
-      dash: "dashed"
-    ),
+    stroke: stroke,
     ..table-args,
     table.header(none, ..lang-dict.weekdays.map(day => align(center, day))),
     ..final-data,
@@ -86,11 +87,7 @@
     context {
       table(
         columns: description.len() + 2,
-        stroke: (
-          paint: gray,
-          thickness: 0.5pt,
-          dash: "dashed"
-        ),
+        stroke: stroke,
         align: horizon,
         ..table-args,
         table.header(none, table.vline(stroke: none), none, ..description.map(d => strong(d.title))),
